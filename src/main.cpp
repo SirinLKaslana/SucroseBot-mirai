@@ -27,7 +27,7 @@ int today = 1;
 int hour_now = 1;
 time_t time_real{};
 vector<QQ_t> black_list;
-vector<string> dirty_words = { "傻逼","傻卵","你吗","你妈","sb","初生","畜生","司马","脑残","死吗"};
+vector<string> dirty_words = {};
 //----------------------------------------------------------------------------------
 //底层工具函数
 
@@ -61,7 +61,7 @@ bool IsValidGroup(const GID_t& group_number) {
 	return group_list[group_number];
 }
 bool IsMaster(const QQ_t& user_qq) {
-	return user_qq == (QQ_t)1575602650;
+	return user_qq == (QQ_t);
 }
 bool IsAdmin(const QQ_t& user_qq) {
 	vector<QQ_t>::iterator result = find(admin_list.begin(), admin_list.end(), user_qq);
@@ -235,7 +235,7 @@ bool GroupAntiAbuseAndDirtyWords(const GroupMessage& m, const vector<string>& te
 		if (m.AtMe()) {
 			AddBlackList(m.Sender.QQ);
 			if (m.Sender.Group.GID == (GID_t)749257398) {
-				m.Reply(MessageChain().At(m.Sender.QQ).Plain("\n傻逼."));
+				m.Reply(MessageChain().At(m.Sender.QQ).Plain("\n."));
 				return 1;
 			}
 			else {
@@ -499,7 +499,7 @@ int main(int argc, char* argv[])
 	MiraiBot bot;
 	SessionOptions opts;
 
-	opts.BotQQ.Set((QQ_t)1209315958);
+	opts.BotQQ.Set((QQ_t));
 	opts.VerifyKey = "114514";
 	opts.EnableVerify = true;
 	opts.SingleMode = false;
@@ -510,9 +510,9 @@ int main(int argc, char* argv[])
 	admin_list_json.clear();
 
 	//群列表（这个地方需要想办法存储）
-	group_list.insert({ (GID_t)749257398,true });//yhk群
-	group_list.insert({ (GID_t)180068294,true });//爽哥群
-	group_list.insert({ (GID_t)867976597,false });//萝卜鸡
+	group_list.insert({ (GID_t),true });
+	group_list.insert({ (GID_t),true });
+	group_list.insert({ (GID_t),false });
 
 	//这个地方可以每次迭代的时候修改
 	command_list.insert({ "/help","查看帮助(All)" });
