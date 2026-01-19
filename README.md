@@ -1,5 +1,5 @@
 # SucroseBot
-这是一个早期基于Mirai框架, 适配Mirai-http服务的机器人, 现已弃用.
+这是一个早期基于Mirai框架, 适配Mirai-http服务的机器人.
 
 ## 实现功能
 - [x] 基于消息对话的身份管理系统
